@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:id="@+id/txt_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="100dp"
+            android:textSize="16sp"
+            android:text="Text" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/edt_add_text"
+        android:scrollbars="vertical"
+        android:hint="Enter your text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_font"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DONE"
+        android:id="@+id/btn_done"/>
+
+</LinearLayout>
