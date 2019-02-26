@@ -35,9 +35,7 @@ public class FontAdapter extends RecyclerView.Adapter<FontAdapter.FontViewHolder
     Context context;
     FontAdapterClickListener listner;
     List<Item> mGoogleWebFonts;
-    List<String> fontList;
-    List<String> typefaceUrl;
-    private Handler mHandler = null;
+
     List<Typeface> typefaceDownloaded;
 
     int rowSelected = -1;
@@ -54,14 +52,6 @@ public class FontAdapter extends RecyclerView.Adapter<FontAdapter.FontViewHolder
         for (int i = 0; i < mGoogleWebFonts.size(); i++) {
             String family =  mGoogleWebFonts.get(i).getFamily();
             download(mGoogleWebFonts.get(i).getFiles().getRegular());
-//            File file = new File("/mnt/sdcard/" + family +".ttf");
-//            if (file.exists()) {
-//                Typeface typeface = Typeface.createFromFile(
-//                        new File(Environment.getExternalStorageDirectory(), "/" + family +".ttf"));
-//                typefaceDownloaded.add(typeface);
-//            } else {
-//                download();
-//            }
         }
     }
 
@@ -169,7 +159,7 @@ public class FontAdapter extends RecyclerView.Adapter<FontAdapter.FontViewHolder
 
         String url = mGoogleWebFonts.get(position).getFiles().getRegular();
 
-//        holder.txt_font_demo.setTypeface(Typeface.createFromFile(url));
+        // download font to file
         new AsyncTask<String, String, String>(){
 
             @Override
@@ -217,6 +207,8 @@ public class FontAdapter extends RecyclerView.Adapter<FontAdapter.FontViewHolder
                     final Typeface typeface = Typeface.createFromFile(
                             new File(Environment.getExternalStorageDirectory()+"/fonts", mGoogleWebFonts.get(position).getFamily() + ".ttf"));
                     Log.d("a","created " + typeface.getStyle());
+                    
+                    // set typeface of item in recyclerview
                     holder.txt_font_demo.setTypeface(typeface);
 
                 } catch (Exception e) {
