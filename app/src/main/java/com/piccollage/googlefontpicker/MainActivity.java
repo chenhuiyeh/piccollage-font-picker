@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements FontAdapter.FontA
     private void loadFontData() {
         if (googleWebFontResponse != null) {
             for (int i = 0; i < googleWebFontResponse.getItems().size(); ++i) {
-                webFontList.add(googleWebFontResponse.getItems().get(i));
+                 if (!googleWebFontResponse.getItems().get(i).getFamily().contains(" "))
+                    webFontList.add(googleWebFontResponse.getItems().get(i));
             }
         }
     }
