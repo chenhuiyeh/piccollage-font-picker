@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements FontAdapter.FontAdapterClickListener {
 
     private static final String TAG = "MainActivity";
-    private Handler mHandler = null;
+
     private WebFontApi webFontApi;
     private GoogleWebFont googleWebFontResponse;
     List<Item> webFontList = new ArrayList<>();
